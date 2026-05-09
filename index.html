@@ -1,12 +1,74 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="utf-8">
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; URL='https://www.lucakoch.ch/'" />
+    <meta http-equiv="refresh" content="2; URL='https://www.lucakoch.ch/'" />
     <link rel="canonical" href="https://www.lucakoch.ch/">
-  </head>
-  <body>
-    <p>Redirecting you to <a href="https://www.lucakoch.ch/">www.lucakoch.ch</a>...</p>
-  </body>
+    
+    <style>
+        :root {
+            --background: #f2f0e7;
+            --artist: #e34ed9;
+            --journalist: #81a431;
+            --educator: #885fdb;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .loader-container {
+            width: 120px;
+            height: 120px;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* The animation that makes the colors "move" */
+        @keyframes rotateGradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .gradient-move {
+            transform-origin: center;
+            animation: rotateGradient 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-container">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <conicGradient id="loadingGradient" cx="50%" cy="55%">
+                    <stop offset="0%" stop-color="var(--artist)" />
+                    <stop offset="33%" stop-color="var(--artist)" />
+                    <stop offset="33%" stop-color="var(--journalist)" />
+                    <stop offset="66%" stop-color="var(--journalist)" />
+                    <stop offset="66%" stop-color="var(--educator)" />
+                    <stop offset="100%" stop-color="var(--educator)" />
+                </conicGradient>
+            </defs>
+            
+            <polygon 
+                points="50,15 15,80 85,80" 
+                fill="url(#loadingGradient)" 
+                class="gradient-move"
+            />
+        </svg>
+    </div>
+
+</body>
 </html>
